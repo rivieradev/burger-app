@@ -1,4 +1,6 @@
+import Navbar from '@/components/Navbar'
 import './globals.css'
+import { Providers } from '@/components/Provider'
 
 export const metadata = {
   title: 'Burger App',
@@ -12,7 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
