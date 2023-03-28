@@ -11,7 +11,7 @@ type Props = {
 
 const Burger = ({ ingredients }: Props) => {
   return (
-    <div className='mt-10 space-y-1'>
+    <div className='space-y-1'>
       <TopBread />
       {ingredients.map((ingredient, index) => {
         switch (ingredient)

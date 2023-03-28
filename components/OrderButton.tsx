@@ -13,6 +13,8 @@ const OrderButton = ({ ingredient }: Props) => {
   const dispatch = useDispatch();
 
   const incrementHandler = () => {
+    if (order.filter(x => x === ingredient).length > 2)
+      return;
     dispatch(increment(ingredient));
   };
 

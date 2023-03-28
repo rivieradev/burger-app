@@ -1,11 +1,12 @@
 'use client';
 
 import OrderButton from './OrderButton';
+import Total from './Total';
 
 const OrderButtons = () => {
 
   return (
-    <div className="w-[200px] divide-y-2 mx-auto mt-7">
+    <div className="w-[200px] divide-y-2 mx-auto">
         <OrderButton
           ingredient="salad"
         />
@@ -18,6 +19,7 @@ const OrderButtons = () => {
         <OrderButton
           ingredient="cheese"
         />
+        <Total />
       </div>
   );
 };
