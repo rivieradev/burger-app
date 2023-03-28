@@ -1,26 +1,13 @@
 'use client';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { decrement, increment } from '@/store/orderSlice';
-import type { RootState } from '@/store/store';
-
 type Props = {
   ingredient: string;
+  count: number;
+  onDecrement: () => void;
+  onIncrement: () => void;
 };
 
-const OrderButton = ({ ingredient }: Props) => {
-  const order = useSelector((state: RootState) => state.order.value);
-  const dispatch = useDispatch();
-
-  const incrementHandler = () => {
-    if (order.filter(x => x === ingredient).length > 2)
-      return;
-    dispatch(increment(ingredient));
-  };
-
-  const decrementHandler = () => {
-    dispatch(decrement(ingredient));
-  };
+const OrderButton = ({ ingredient, count, onDecrement, onIncrement }: Props) => {
 
   return (
     <div className="flex flex-row justify-between items-center mt-1">
@@ -28,12 +15,12 @@ const OrderButton = ({ ingredient }: Props) => {
       <div className="flex flex-row items-center space-x-3">
         <button
           className="border rounded-sm px-2 py-1 hover:bg-sky-200"
-          onClick={decrementHandler}
+          onClick={onDecrement}
         >-</button>
-        <span>{order.filter(x => x === ingredient).length}</span>
+        <span>{count}</span>
         <button
           className="border rounded-sm px-2 py-1 hover:bg-sky-200"
-          onClick={incrementHandler}
+          onClick={onIncrement}
           >+</button>
       </div>
     </div>
