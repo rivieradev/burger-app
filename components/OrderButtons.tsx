@@ -31,32 +31,17 @@ const OrderButtons = () => {
 
   return (
     <div className="w-[200px] divide-y-2 mx-auto">
+      {["salad", "meat", "bacon", "cheese"].map(ing => (
         <OrderButton
-          ingredient="salad"
-          onIncrement={() => incrementHandler("salad")}
-          onDecrement={() => decrementHandler("salad")}
-          count={order.filter(x => x === "salad").length}
-        />
-        <OrderButton
-          ingredient="meat"
-          onIncrement={() => incrementHandler("meat")}
-          onDecrement={() => decrementHandler("meat")}
-          count={order.filter(x => x === "meat").length}
-        />
-        <OrderButton
-          ingredient="bacon"
-          onIncrement={() => incrementHandler("bacon")}
-          onDecrement={() => decrementHandler("bacon")}
-          count={order.filter(x => x === "bacon").length}
-        />
-        <OrderButton
-          ingredient="cheese"
-          onIncrement={() => incrementHandler("cheese")}
-          onDecrement={() => decrementHandler("cheese")}
-          count={order.filter(x => x === "cheese").length}
-        />
-        <label className="mt-2 text-2xl font-bold">$ {sum}</label>
-      </div>
+          key={`button-${ing}`}
+          ingredient={ing}
+          onIncrement={() => incrementHandler(ing)}
+          onDecrement={() => decrementHandler(ing)}
+          count={order.filter(x => x === ing).length}
+      />
+      ))}
+      <label className="mt-2 text-2xl font-bold">$ {sum}</label>
+    </div>
   );
 };
 
