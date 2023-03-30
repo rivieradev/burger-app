@@ -1,12 +1,17 @@
 'use client';
 import { useOrders } from "@/hooks/useOrders";
+import OrderCard from './OrderCard';
 
 const OrdersList = () => {
   const { orders } = useOrders();
 
   return (
-    <div>OrdersList</div>
-  )
-}
+    <div className="min-h-screen my-auto">
+      {orders?.map(x => (
+        <OrderCard id={x.id} ingredients={x.ingredients} price={x.price} key={x.id}/>
+      ))}
+    </div>
+  );
+};
 
-export default OrdersList
+export default OrdersList;
