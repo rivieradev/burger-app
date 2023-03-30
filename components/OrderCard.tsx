@@ -3,14 +3,7 @@ import { IOrder } from "@/typings"
 
 const OrderCard = ({ id, ingredients, price } : IOrder) => {
 
-  let uniqueIngredients: string[] = [];
-
-  ingredients.forEach(x => {
-    if (!uniqueIngredients.includes(x)) {
-      uniqueIngredients = [...uniqueIngredients, x];
-    }
-  });
-
+  const uniqueIngredients: string[] = [...new Set(ingredients)];
 
   return (
     <div className="flex flex-row justify-between items-center border bg-gray-200 rounded-md py-2 px-4 my-4">
