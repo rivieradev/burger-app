@@ -6,7 +6,7 @@ const OrdersList = () => {
   const { orders } = useOrders();
 
   return (
-    <div className="min-h-screen my-auto">
+    <div className="w-1/2 mx-auto">
       {orders?.map(x => (
         <OrderCard id={x.id} ingredients={x.ingredients} price={x.price} key={x.id}/>
       ))}
